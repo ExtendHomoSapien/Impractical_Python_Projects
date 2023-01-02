@@ -13,8 +13,12 @@ Requires-import sys
 
 """
 import sys
+from inspect import getsourcefile
+from os.path import abspath, join, dirname
 
-def load(file):
+LOCAL_DICT = join(dirname(abspath(getsourcefile(lambda:0))),  '2of4brif.txt')
+
+def load(file = LOCAL_DICT):
     """Open a text file & turn contents into a list of lowercase strings."""
     try:
         with open(file) as in_file:

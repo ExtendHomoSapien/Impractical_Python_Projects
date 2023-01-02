@@ -1,7 +1,7 @@
 """Find all word-pair palingrams in a dictionary file."""
-import load_dictionary
+from word_dictionary_util import load_dictionary
 
-word_list = load_dictionary.load('2of4brif.txt')
+word_list = load_dictionary.load()
 
 # find word-pair palingrams
 def find_palingrams():
