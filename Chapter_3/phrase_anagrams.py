@@ -6,9 +6,9 @@ and file-loading module "load_dictionary.py"
 """
 import sys
 from collections import Counter
-import load_dictionary
+import word_dictionary_util
 
-dict_file = load_dictionary.load('2of4brif.txt')
+dict_file = word_dictionary_util.load_dictionary.load('2of4brif.txt')
 # ensure "a" & "I" are included
 dict_file.append('a')
 dict_file.append('i')

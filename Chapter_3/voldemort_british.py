@@ -7,7 +7,7 @@ and file-loading module "load_dictionary.py"
 import sys
 from itertools import permutations
 from collections import Counter
-import load_dictionary
+import word_dictionary_util.load_dictionary as load_dictionary
 
 def main():
     """Load files, run filters, allow user to view anagrams by 1st letter."""
