@@ -1,3 +1,4 @@
 /.idea/*
 **/__pycache__/*
 **/2of4brif.txt
+/mypackage.egg-info/*
