@@ -1,8 +1,8 @@
 """
-Capture bigram stats on a dictionary.
+Capture digram stats on a dictionary.
 
-Write a python program that finds all the bigrams in 'tmvoordle' and then counts their frequency of occurrence in
-a dictionary file. Be sure to test your code on words like volvo, so you don't overlook repeating bigrams in the same
+Write a python program that finds all the digrams in 'tmvoordle' and then counts their frequency of occurrence in
+a dictionary file. Be sure to test your code on words like volvo, so you don't overlook repeating digrams in the same
 word.
 """
 
@@ -11,16 +11,16 @@ from collections import Counter
 
 
 # load dictionary
-# split word into bigrams
-# loop dictionary and find bigrams, if match, add to count
+# split word into digrams
+# loop dictionary and find digrams, if match, add to count
 
-def make_bigrams(word: str) -> list:
-    """Split word into bigrams."""
-    out_bigrams = list()
+def make_digrams(word: str) -> list:
+    """Split word into digrams."""
+    out_digrams = list()
     for i in range(0, len(word) - 1):
         bigram = word[i] + word[i + 1]
-        out_bigrams.append(bigram)
-    return out_bigrams
+        out_digrams.append(bigram)
+    return out_digrams
 
 
 def intersection(candidate: list, control: list):
@@ -30,22 +30,22 @@ def intersection(candidate: list, control: list):
     return filtered
 
 
-def filter_bigrams(word: str, target_bigrams: list) -> list:
-    """Return list of bigrams matching target bigrams."""
-    return intersection(candidate=make_bigrams(word), control=target_bigrams)
+def filter_digrams(word: str, target_digrams: list) -> list:
+    """Return list of digrams matching target digrams."""
+    return intersection(candidate=make_digrams(word), control=target_digrams)
 
 
 def main():
     """Control logic."""
     dict_file = load_dictionary.load()
     input_word = 'tmvoordle'
-    input_bigrams = set(make_bigrams(input_word))
-    filtered_bigrams = []
+    input_digrams = set(make_digrams(input_word))
+    filtered_digrams = []
     for word in dict_file:
-        filtered_bigrams.extend(
-            filter_bigrams(word=word, target_bigrams=list(input_bigrams))
+        filtered_digrams.extend(
+            filter_digrams(word=word, target_digrams=list(input_digrams))
         )
-    bg_cntr = Counter(filtered_bigrams)
+    bg_cntr = Counter(filtered_digrams)
     print(bg_cntr.most_common())
 
 
